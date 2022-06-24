@@ -24,22 +24,20 @@ export const mutations: MutationTree<RootState> = {
 export const actions: ActionTree<RootState, RootState> = {
   async createPhotos({ commit }) {
     return await this.$axios
-      .$get('https://jsonplaceholder.typicode.com/photos?_start=0&_end=100') // set limit of photos
-      .then((data: [object]): void => {
-        commit('setPhotos', data)
-      },
-      (errors: any): Promise<void> => {
-        return Promise.reject(errors);
+      .$get('https://jsonplaceholder.typicode.com/photos?_start=0&_end=15') // set limit of photos
+      .then(data => {
+        commit('setPhotos', data);
+
+        return data;
       });
   },
   async createAlbums({ commit }) {
     return await this.$axios
-      .$get('https://jsonplaceholder.typicode.com/albums')
-      .then((data: [object]): void => {
-        commit('setAlbums', data)
-      },
-      (errors: any): Promise<void> => {
-        return Promise.reject(errors);
+      .$get('https://jsonplaceholder.typicode.com/albums?_start=0&_end=15')
+      .then(data => {
+        commit('setAlbums', data);
+
+        return data;
       });
   }
 }
