@@ -1,4 +1,4 @@
-import { GetterTree, ActionTree, MutationTree } from 'vuex';
+import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
 export const state = () => ({
   photos: [],
